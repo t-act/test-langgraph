@@ -9,6 +9,8 @@
 """
 import os
 
-OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "Qwen2.5-Coder:latest")
+# tool calling が正しく機能するのは gemma4:12b 側だったのでこちらを既定にする。
+# （Qwen2.5-Coder:latest は tool_calls を返さずテキストで吐いてしまうため）
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "gemma4:12b")
 OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
 TEMPERATURE = 0.3
