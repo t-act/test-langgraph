@@ -3,10 +3,12 @@
     uv run python src/main.py
 """
 from graph import build_graph
+import db
 
 
 def main() -> None:
     graph = build_graph()
+    db.init_db()
     print("タスク秘書（最小版）です。終了は exit / quit。")
 
     while True:

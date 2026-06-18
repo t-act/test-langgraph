@@ -41,9 +41,11 @@ def build_graph():
     #   あれば "tools" へ、無ければ END へ、を自動で振り分けてくれる。
     #     builder.add_conditional_edges("chatbot", tools_condition)
     #   ※ Step2 の add_edge("chatbot", END) は書かない。この分岐がその役割。
+    builder.add_conditional_edges("chatbot", tools_condition)
 
     # TODO(step3-b): tools の実行後は chatbot に戻してループさせる。
     #   ツール結果を見て LLM が最終返答を作れるようにするため。
     #     builder.add_edge("tools", "chatbot")
-
+    builder.add_edge("tools", "chatbot")
+    
     return builder.compile()
